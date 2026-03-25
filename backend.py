@@ -10,7 +10,7 @@ load_dotenv()
 
 llm = HuggingFaceEndpoint(
     repo_id="meta-llama/Llama-3.1-8B-Instruct",
-    task="conversational",  # ✅ safer
+    task="conversational",  
     temperature=0.5,
 )
 
@@ -22,9 +22,9 @@ class ChatState(TypedDict):
 def chat_node(state: ChatState):
     messages = state["messages"]
 
-    response = model.invoke(messages)  # ✅ FIXED
+    response = model.invoke(messages)  
 
-    return {"messages": [response]}  # ✅ correct type
+    return {"messages": [response]}  
 
 checkpointer = InMemorySaver()
 
